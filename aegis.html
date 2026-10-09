@@ -14,6 +14,50 @@
 <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html">Kristin Bartholomew, EdD, RDN</a><a class="back" href="index.html#portfolio">← Back to portfolio</a></div></header>
 <main>
 <section class="hero"><div class="wrap"><div class="eyebrow">Responsible AI Governance · Case Study</div><h1>Aegis Responsible AI Knowledge Assistant</h1><p>A portfolio prototype exploring how retrieval-augmented generation can be designed around grounded evidence, knowledge boundaries, policy hierarchy, human oversight, and explicit risk controls.</p></div></section>
+<section><div class="wrap"><div class="kicker">Interactive prototype</div><h2>See the application, not just the architecture.</h2>
+<p>This portfolio preview reproduces the core interaction pattern of the Aegis application. Select a demonstration question, then choose <strong>Check guidance</strong> to see the action recommendation, risk level, human-review requirement, and supporting policy basis.</p>
+
+<div class="app-shell" style="margin-top:28px;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 18px 42px rgba(24,53,79,.12);background:white">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 22px;background:#0f2435;color:white">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:38px;height:38px;border-radius:10px;background:#3f7f87;display:flex;align-items:center;justify-content:center;font-weight:900">A</div>
+      <div><div style="font-weight:850;font-size:1.05rem">Aegis</div><div style="font-size:.8rem;color:rgba(255,255,255,.72)">Responsible AI Knowledge Assistant</div></div>
+    </div>
+    <div style="font-size:.72rem;letter-spacing:.1em;color:rgba(255,255,255,.7)">FICTIONAL LAW FIRM PROTOTYPE</div>
+  </div>
+  <div style="padding:28px">
+    <div style="font-size:.72rem;letter-spacing:.12em;font-weight:850;color:var(--teal)">TRY THE DEMONSTRATION</div>
+    <h3 style="font-size:1.35rem;margin-bottom:8px">Select one of the sample questions.</h3>
+    <p style="color:var(--muted);margin-top:0">Each question demonstrates a different governance behavior in the working prototype.</p>
+    <div id="demoQuestions" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0">
+      <button class="demoq" data-id="0" style="text-align:left;padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb;cursor:pointer"><strong>01 · Prohibited use</strong><br><span>Can I summarize a client contract in a public chatbot?</span></button>
+      <button class="demoq" data-id="1" style="text-align:left;padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb;cursor:pointer"><strong>02 · Conditional use</strong><br><span>Can I use FirmAI Secure with privileged work product?</span></button>
+      <button class="demoq" data-id="2" style="text-align:left;padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb;cursor:pointer"><strong>03 · Incident response</strong><br><span>What should I do if I accidentally pasted client information into an unapproved AI tool?</span></button>
+      <button class="demoq" data-id="3" style="text-align:left;padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb;cursor:pointer"><strong>04 · Knowledge boundary</strong><br><span>What is the firm's maternity leave policy?</span></button>
+    </div>
+    <label for="demoInput" style="font-weight:800;color:var(--navy)">Selected question</label>
+    <textarea id="demoInput" rows="3" readonly style="width:100%;margin-top:7px;padding:13px;border:1px solid var(--line);border-radius:12px;font:inherit"></textarea>
+    <button id="demoRun" style="margin-top:10px;padding:11px 16px;border:0;border-radius:10px;background:var(--navy);color:white;font-weight:850;cursor:pointer">Check guidance</button>
+
+    <div id="demoAnswer" style="display:none;margin-top:24px;border-top:1px solid var(--line);padding-top:22px">
+      <div style="display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap">
+        <div><div style="font-size:.7rem;letter-spacing:.11em;font-weight:850;color:var(--teal)">RECOMMENDED ACTION</div><div id="demoAction" style="font-size:1.15rem;font-weight:900;color:var(--navy);margin-top:4px"></div></div>
+        <div style="font-size:.78rem;padding:6px 9px;border-radius:999px;background:#eaf3f4;color:#2f686d;font-weight:800">RAG + governance guardrails</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0">
+        <div style="background:#f6f8fa;border:1px solid var(--line);border-radius:12px;padding:14px"><div style="font-size:.7rem;font-weight:850;color:var(--teal)">RISK LEVEL</div><div id="demoRisk" style="font-weight:850;color:var(--navy);margin-top:4px"></div></div>
+        <div style="background:#f6f8fa;border:1px solid var(--line);border-radius:12px;padding:14px"><div style="font-size:.7rem;font-weight:850;color:var(--teal)">HUMAN REVIEW</div><div id="demoReview" style="font-weight:850;color:var(--navy);margin-top:4px"></div></div>
+      </div>
+      <h3 style="margin-bottom:8px">Guidance</h3>
+      <p id="demoGuidance"></p>
+      <div id="demoSources" style="margin-top:18px"></div>
+    </div>
+  </div>
+</div>
+
+<p style="font-size:.86rem;color:var(--muted);margin-top:12px">This embedded preview uses the same demonstration scenarios and decision logic documented in the working Aegis prototype. The full application is implemented in FastAPI/Python with a local policy knowledge base, TF-IDF retrieval, scenario-aware reranking, governance guardrails, and optional Claude grounded synthesis.</p>
+</div></section>
+
 <section><div class="wrap"><div class="kicker">Why I built it</div><h2>To explore governance as part of the architecture, not an afterthought.</h2><p>Aegis uses a fictional law-firm setting because it creates a useful test case for high-stakes knowledge work. The purpose is not legal automation. The purpose is to demonstrate how an AI assistant can be constrained by a defined knowledge base, required to cite supporting material, refuse questions outside its boundaries, and separate language-model synthesis from deterministic risk and action rules.</p><div class="grid">
 <div class="card"><h3>Grounded responses</h3><p>The assistant is designed around retrieval from an approved knowledge base rather than unconstrained generation.</p></div>
 <div class="card"><h3>Human-in-the-loop design</h3><p>The prototype assumes AI supports professional judgment rather than replacing consequential human decisions.</p></div>
@@ -32,5 +76,59 @@
 <section><div class="wrap"><div class="cta"><h2 style="color:white;margin-top:0">What this project demonstrates</h2><p>This prototype is evidence of hands-on AI fluency used to inform broader leadership questions about governance, trustworthy implementation, human oversight, and responsible institutional adoption.</p><a href="index.html#portfolio">Return to selected work</a></div></div></section>
 </main>
 <footer><div class="wrap">Kristin Bartholomew, EdD, RDN · Responsible AI Adoption · Governance · Higher Education Leadership</div></footer>
+<script>
+const cases=[
+{
+q:"Can I summarize a client contract in a public chatbot?",
+action:"DO NOT USE PUBLIC AI",risk:"High",
+review:"Required before any client-facing or substantive use",
+guidance:"No. Do not submit the client material to a public consumer AI tool. Public chatbots are approved only for Public information. Client and matter information must remain in an AI environment approved for the relevant data classification. If AI-assisted summarization is appropriate for the matter, use an approved secure tool, provide only the minimum information necessary, and complete the required human review.",
+sources:[
+["PRIMARY","Approved AI Tools Matrix · §1.3","Public consumer chatbots are approved only for Public information. Do not enter Internal, Confidential, Restricted, client, matter, employee, credential, or nonpublic firm information."],
+["SUPPORTING","Data Classification & Handling Standard · §2.3","Confidential information may be processed only in AI environments explicitly approved for confidential data and only when access is limited to authorized users."]
+]},
+{
+q:"Can I use FirmAI Secure with privileged work product?",
+action:"USE ONLY AFTER MATTER-LEVEL CONFIRMATION",risk:"Elevated",
+review:"Responsible attorney confirmation and substantive human review required",
+guidance:"Yes, potentially, but not automatically. FirmAI Secure is approved for Confidential information, but privileged communications and attorney work product require heightened care. Use it only when the responsible attorney determines that AI use is appropriate for the matter and no client-specific or matter-specific restriction prohibits the use. Restricted information requires separate approval.",
+sources:[
+["PRIMARY","Client Confidentiality & Privilege Guidance · §2.1","Privileged communications and attorney work product require heightened care. Use is permitted only in approved firm systems that preserve access controls and confidentiality and only when the responsible attorney determines that the use is appropriate for the matter."],
+["SUPPORTING","Approved AI Tools Matrix · §1.1","FirmAI Secure is approved for Public, Internal, and Confidential information. Restricted information requires matter-specific approval."]
+]},
+{
+q:"What should I do if I accidentally pasted client information into an unapproved AI tool?",
+action:"ESCALATE IMMEDIATELY",risk:"High",
+review:"Immediate human escalation required",
+guidance:"Stop using the unapproved tool and escalate immediately. Do not delete or alter evidence of what occurred. Promptly notify the AI Governance Team and Information Security, and inform the responsible attorney because client or matter information is involved. Do not attempt to resolve or conceal the incident on your own.",
+sources:[
+["PRIMARY","AI Incident & Escalation Protocol · §2.1","If nonpublic information is entered into an unapproved AI tool, stop using the tool, do not delete or alter evidence of the event, and promptly notify the AI Governance Team and Information Security."],
+["SUPPORTING","Client Confidentiality & Privilege Guidance · §1.1","Before using an AI tool with client or matter information, personnel must identify the data classification and confirm that the tool is approved for that classification."]
+]},
+{
+q:"What is the firm's maternity leave policy?",
+action:"KNOWLEDGE BASE DOES NOT COVER THIS",risk:"Unknown",
+review:"Consult the appropriate firm resource",
+guidance:"I could not find a policy in the available AI-governance knowledge base that directly addresses this question. I should not infer a firm rule from unrelated policies. Please consult the appropriate firm resource or the AI Governance Team.",
+sources:[]
+}
+];
+let selected=0;
+const input=document.getElementById("demoInput"),answer=document.getElementById("demoAnswer");
+function choose(i){selected=i;input.value=cases[i].q;answer.style.display="none";document.querySelectorAll(".demoq").forEach((b,j)=>{b.style.borderColor=j===i?"#3f7f87":"#dbe3e8";b.style.background=j===i?"#eef6f6":"#f8fafb"})}
+document.querySelectorAll(".demoq").forEach(b=>b.addEventListener("click",()=>choose(Number(b.dataset.id))));
+document.getElementById("demoRun").addEventListener("click",()=>{
+ const c=cases[selected];
+ document.getElementById("demoAction").textContent=c.action;
+ document.getElementById("demoRisk").textContent=c.risk;
+ document.getElementById("demoReview").textContent=c.review;
+ document.getElementById("demoGuidance").textContent=c.guidance;
+ const s=document.getElementById("demoSources");
+ if(!c.sources.length){s.innerHTML='<div style="padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb"><strong>No supporting policy found.</strong><br><span style="color:var(--muted)">The assistant refuses rather than force an unrelated policy match.</span></div>'}
+ else{s.innerHTML='<div style="font-size:.72rem;letter-spacing:.11em;font-weight:850;color:var(--teal);margin-bottom:8px">RETRIEVED POLICY PASSAGES</div>'+c.sources.map(x=>'<div style="padding:14px;border:1px solid var(--line);border-radius:12px;margin-top:8px;background:white"><div style="font-weight:850;color:var(--navy)">'+x[0]+' · '+x[1]+'</div><div style="margin-top:6px;color:var(--muted)">'+x[2]+'</div></div>').join('')}
+ answer.style.display="block";answer.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+choose(0);
+</script>
 </body>
 </html>
