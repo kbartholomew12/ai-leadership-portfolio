@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kristin Bartholomew, EdD, RDN — AI leadership and learning innovation portfolio focused on responsible AI adoption, faculty readiness, academic innovation, and change leadership." />
+  <title>Kristin Bartholomew | AI Leadership & Learning Innovation</title>
+  <style>
+    :root{
+      --navy:#18354f;
+      --navy-2:#10263a;
+      --ink:#202326;
+      --muted:#66727d;
+      --line:#dbe3e8;
+      --soft:#f5f8fa;
+      --white:#ffffff;
+      --accent:#3f7f87;
+      --accent-soft:#eaf3f4;
+      --max:1120px;
+      --radius:18px;
+      --shadow:0 18px 45px rgba(24,53,79,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--white);
+      line-height:1.62;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,.92);
+      border-bottom:1px solid rgba(219,227,232,.9);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      min-height:68px; gap:20px;
+    }
+    .brand{
+      font-weight:800; letter-spacing:.01em; color:var(--navy);
+      text-decoration:none; white-space:nowrap;
+    }
+    .navlinks{display:flex; flex-wrap:wrap; gap:20px; align-items:center}
+    .navlinks a{
+      text-decoration:none; color:#44515c; font-size:.94rem; font-weight:650;
+    }
+    .navlinks a:hover{color:var(--navy)}
+    .hero{
+      background:
+        radial-gradient(circle at 82% 22%, rgba(63,127,135,.25), transparent 26%),
+        linear-gradient(135deg,var(--navy-2),var(--navy));
+      color:var(--white);
+      padding:88px 0 82px;
+    }
+    .eyebrow{
+      text-transform:uppercase; letter-spacing:.16em; font-size:.78rem;
+      font-weight:800; opacity:.78; margin-bottom:16px;
+    }
+    h1{
+      font-size:clamp(2.5rem,6vw,5.2rem);
+      line-height:1.02; margin:0 0 22px;
+      letter-spacing:-.035em; max-width:900px;
+    }
+    .hero p{
+      font-size:clamp(1.08rem,2vw,1.33rem);
+      max-width:850px; color:rgba(255,255,255,.88); margin:0;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:46px; padding:0 18px; border-radius:999px;
+      text-decoration:none; font-weight:800; font-size:.94rem;
+      border:1px solid transparent;
+    }
+    .btn.primary{background:var(--white); color:var(--navy)}
+    .btn.secondary{border-color:rgba(255,255,255,.35); color:var(--white)}
+    .btn:hover{transform:translateY(-1px)}
+    section{padding:78px 0}
+    .section-kicker{
+      color:var(--accent); font-weight:800; text-transform:uppercase;
+      letter-spacing:.14em; font-size:.76rem; margin-bottom:8px;
+    }
+    h2{
+      color:var(--navy); margin:0 0 18px;
+      font-size:clamp(2rem,4vw,3.2rem); line-height:1.08; letter-spacing:-.025em;
+    }
+    .lead{font-size:1.12rem; max-width:850px; color:#48545e}
+    .thesis{
+      display:grid; grid-template-columns:1.2fr .8fr; gap:34px; align-items:start;
+    }
+    .principles{
+      background:var(--soft); border:1px solid var(--line); border-radius:var(--radius);
+      padding:26px;
+    }
+    .principles h3{margin-top:0; color:var(--navy)}
+    .principles ul{margin:0; padding-left:20px}
+    .principles li{margin:10px 0}
+    .band{background:var(--soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+    .grid{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px;
+      margin-top:32px;
+    }
+    .card{
+      background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+      padding:27px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column; min-height:100%;
+    }
+    .tag{
+      display:inline-flex; width:max-content; padding:6px 10px; border-radius:999px;
+      background:var(--accent-soft); color:#255f66; font-size:.75rem; font-weight:800;
+      text-transform:uppercase; letter-spacing:.08em; margin-bottom:15px;
+    }
+    .card h3{color:var(--navy); font-size:1.34rem; margin:0 0 10px}
+    .card p{margin:0 0 15px; color:#4f5b65}
+    .card .why{
+      border-top:1px solid var(--line); margin-top:auto; padding-top:16px;
+      font-size:.94rem;
+    }
+    .card .why strong{color:var(--navy)}
+    .card-link{
+      display:inline-flex; align-items:center; margin-top:18px;
+      color:var(--navy); font-weight:800; text-decoration:none;
+    }
+    .card-link:hover{text-decoration:underline}
+    .scale-grid{
+      display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-top:34px;
+    }
+    .step{
+      border:1px solid var(--line); border-radius:16px; padding:20px 16px;
+      background:var(--white); min-height:160px;
+    }
+    .step .n{
+      font-size:.76rem; font-weight:900; color:var(--accent); letter-spacing:.12em;
+    }
+    .step h3{font-size:1rem; margin:8px 0 8px; color:var(--navy)}
+    .step p{font-size:.9rem; margin:0; color:var(--muted)}
+    .evidence{
+      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-top:30px;
+    }
+    .metric{
+      border-left:4px solid var(--accent); padding:10px 14px;
+    }
+    .metric strong{display:block; color:var(--navy); font-size:1.65rem; line-height:1.1}
+    .metric span{color:var(--muted); font-size:.9rem}
+    .cta{
+      background:var(--navy); color:white; border-radius:24px;
+      padding:42px; display:flex; justify-content:space-between; gap:28px; align-items:center;
+    }
+    .cta h2{color:white; font-size:2rem; margin-bottom:10px}
+    .cta p{color:rgba(255,255,255,.82); margin:0; max-width:720px}
+    footer{padding:34px 0 54px; color:var(--muted); font-size:.92rem}
+    .small-note{font-size:.86rem;color:var(--muted);margin-top:14px}
+    @media (max-width:850px){
+      .nav{align-items:flex-start; padding:14px 0}
+      .navlinks{justify-content:flex-end}
+      .thesis,.grid{grid-template-columns:1fr}
+      .scale-grid{grid-template-columns:1fr 1fr}
+      .evidence{grid-template-columns:1fr 1fr}
+      .cta{flex-direction:column; align-items:flex-start}
+    }
+    @media (max-width:560px){
+      .navlinks{display:none}
+      .hero{padding:64px 0}
+      section{padding:58px 0}
+      .scale-grid,.evidence{grid-template-columns:1fr}
+      .cta{padding:28px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Kristin Bartholomew, EdD, RDN</a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#approach">Approach</a>
+        <a href="#projects">Selected Work</a>
+        <a href="#scale">From Prototype to Scale</a>
+        <a href="https://www.linkedin.com/in/kristin-bartholomew-2309364b/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">AI Leadership & Learning Innovation</div>
+        <h1>Responsible AI adoption that strengthens teaching, learning, and institutional capacity.</h1>
+        <p>
+          I work at the intersection of academic leadership, faculty development, curriculum transformation,
+          and emerging technology. My focus is not AI for its own sake. I use hands-on experimentation to
+          understand what the technology can do, then translate that understanding into responsible,
+          scalable practices that support faculty, students, and institutional goals.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Explore selected work</a>
+          <a class="btn secondary" href="#scale">See how I think about scale</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap thesis">
+        <div>
+          <div class="section-kicker">Leadership approach</div>
+          <h2>From experimentation to institutional practice.</h2>
+          <p class="lead">
+            These projects reflect hands-on experimentation used to inform broader decisions about responsible
+            AI adoption, faculty readiness, curriculum design, accessibility, assessment, and academic quality.
+            I believe effective AI leadership requires enough practical fluency to understand the tools,
+            enough academic judgment to recognize their limits, and enough organizational experience to help
+            people adopt new practices successfully.
+          </p>
+          <p class="lead">
+            My work is grounded in more than 25 years in higher education and more than a decade of academic
+            leadership. As Assistant Dean of Biological Sciences, I lead faculty operations and instructional
+            quality for approximately 60–65 part-time faculty across Biology, Environmental Science, and Nutrition.
+          </p>
+        </div>
+        <aside class="principles" aria-label="Responsible AI principles">
+          <h3>What responsible adoption requires</h3>
+          <ul>
+            <li>Human judgment remains part of consequential academic decisions.</li>
+            <li>Learning outcomes come before the novelty of the technology.</li>
+            <li>Accuracy, accessibility, integrity, and usability are reviewed intentionally.</li>
+            <li>Faculty need practical support, not simply access to tools.</li>
+            <li>Innovation should produce evidence that can guide improvement and scale.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects" class="band">
+      <div class="wrap">
+        <div class="section-kicker">Selected work</div>
+        <h2>Applied AI and learning innovation</h2>
+        <p class="lead">
+          The examples below show how I explore emerging capabilities through real instructional problems
+          while keeping the larger institutional questions in view.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Interactive learning</span>
+            <h3>Protein Journey</h3>
+            <p>
+              An illustrated, continuously animated learning experience for undergraduate nutrition students
+              that follows protein digestion, absorption, transport, and utilization. The project combines
+              scientific review, narration support, embedded questioning, playback controls, and browser-based delivery.
+            </p>
+            <div class="why">
+              <strong>Why it matters institutionally:</strong> Demonstrates how AI-supported prototyping can accelerate
+              development of high-quality digital learning while faculty retain responsibility for disciplinary accuracy,
+              accessibility, instructional sequencing, and final quality decisions.
+            </div>
+            <a class="card-link" href="https://kbartholomew12.github.io/HUN1201-protein-journey/" target="_blank" rel="noreferrer">
+              View live project →
+            </a>
+          </article>
+
+          <article class="card">
+            <span class="tag">Faculty readiness</span>
+            <h3>Generative & Agentic AI Faculty Development</h3>
+            <p>
+              Faculty-facing exploration of generative AI, agentic workflows, authentic assessment, and rapid
+              prototyping for learning. The work focuses on helping instructors move beyond awareness toward
+              purposeful experimentation and informed classroom use.
+            </p>
+            <div class="why">
+              <strong>Why it matters institutionally:</strong> AI adoption succeeds when professional learning connects
+              emerging tools to faculty practice, disciplinary judgment, academic integrity, and clear expectations for use.
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Authentic assessment</span>
+            <h3>Assessment Redesign in an AI Environment</h3>
+            <p>
+              A continuing body of work focused on designing assessments that require application, explanation,
+              decision-making, and evidence of student reasoning rather than relying primarily on tasks that
+              generative AI can complete for students.
+            </p>
+            <div class="why">
+              <strong>Why it matters institutionally:</strong> Responsible AI strategy cannot stop at tool adoption.
+              Institutions also need assessment practices that preserve meaningful evidence of learning as student access
+              to generative AI expands.
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Scalable learning systems</span>
+            <h3>Interactive Science Prototypes</h3>
+            <p>
+              Browser-based tutorials, simulations, scenarios, and interactive learning experiences developed
+              through AI-assisted workflows and then reviewed for scientific accuracy, usability, accessibility,
+              and alignment with course outcomes.
+            </p>
+            <div class="why">
+              <strong>Why it matters institutionally:</strong> Lightweight prototyping can help faculty test ideas quickly,
+              identify what creates learning value, and develop reusable models before investing in broader implementation.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scale">
+      <div class="wrap">
+        <div class="section-kicker">From prototype to scale</div>
+        <h2>Innovation becomes valuable when people can actually use it.</h2>
+        <p class="lead">
+          My leadership approach treats a successful prototype as the beginning of the work, not the end.
+          Moving innovation into sustainable practice requires a deliberate pathway from exploration to adoption,
+          governance, measurement, and continuous improvement.
+        </p>
+
+        <div class="scale-grid">
+          <div class="step">
+            <div class="n">01</div>
+            <h3>Explore</h3>
+            <p>Understand emerging capabilities through hands-on experimentation and real academic use cases.</p>
+          </div>
+          <div class="step">
+            <div class="n">02</div>
+            <h3>Evaluate</h3>
+            <p>Review learning value, accuracy, accessibility, ethics, risk, and the role of human judgment.</p>
+          </div>
+          <div class="step">
+            <div class="n">03</div>
+            <h3>Enable</h3>
+            <p>Translate successful approaches into faculty development, practical guidance, templates, and support.</p>
+          </div>
+          <div class="step">
+            <div class="n">04</div>
+            <h3>Scale</h3>
+            <p>Build shared standards, workflows, governance, and reusable systems that work across people and contexts.</p>
+          </div>
+          <div class="step">
+            <div class="n">05</div>
+            <h3>Improve</h3>
+            <p>Use outcomes, feedback, implementation barriers, and new capabilities to refine the system over time.</p>
+          </div>
+        </div>
+
+        <div class="evidence" aria-label="Leadership evidence">
+          <div class="metric">
+            <strong>60–65</strong>
+            <span>part-time faculty currently led</span>
+          </div>
+          <div class="metric">
+            <strong>4 → 70+</strong>
+            <span>sections scaled across five campuses</span>
+          </div>
+          <div class="metric">
+            <strong>83–91%</strong>
+            <span>student success across modalities after redesign and scale</span>
+          </div>
+          <div class="metric">
+            <strong>25+ years</strong>
+            <span>in higher education</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <h2>Academic leadership with hands-on AI fluency.</h2>
+            <p>
+              My goal is to help institutions move from isolated experimentation toward responsible,
+              evidence-informed adoption that strengthens faculty capability, student learning, and organizational readiness.
+            </p>
+          </div>
+          <div>
+            <a class="btn primary" href="Kristin_Bartholomew_Resume.pdf">View résumé</a>
+          </div>
+        </div>
+        <p class="small-note">
+          Before publishing, add your résumé PDF to this folder using the filename <strong>Kristin_Bartholomew_Resume.pdf</strong>,
+          or change the résumé link in the HTML to match your preferred file.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Kristin Bartholomew, EdD, RDN · Higher Education Leadership · Responsible AI Adoption · Learning Innovation
+    </div>
+  </footer>
+</body>
+</html>
