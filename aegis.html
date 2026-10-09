@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Case study: Aegis Responsible AI Knowledge Assistant by Kristin Bartholomew, EdD, RDN.">
+<title>Aegis Responsible AI Knowledge Assistant | Kristin Bartholomew</title>
+<style>
+:root{--navy:#18354f;--navy2:#10263a;--teal:#3f7f87;--ink:#243039;--muted:#66727d;--line:#dbe3e8;--soft:#f5f8fa;--white:#fff;--max:1040px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);line-height:1.65;background:white}.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}a{color:inherit}.topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);position:sticky;top:0}.nav{min-height:66px;display:flex;justify-content:space-between;align-items:center}.brand,.back{text-decoration:none;color:var(--navy);font-weight:800}.hero{background:linear-gradient(135deg,var(--navy2),var(--navy));color:white;padding:78px 0 70px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:850;opacity:.8}h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.04;letter-spacing:-.035em;margin:12px 0 18px}.hero p{font-size:1.16rem;max-width:820px;color:rgba(255,255,255,.88);margin:0}section{padding:62px 0}.kicker{text-transform:uppercase;letter-spacing:.14em;color:var(--teal);font-size:.74rem;font-weight:850}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}.card{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--soft)}h2,h3{color:var(--navy)}h2{font-size:2rem;margin:8px 0 14px}h3{margin-top:0}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:25px}.step{border:1px solid var(--line);border-radius:14px;padding:16px;background:white}.step strong{display:block;color:var(--navy);margin-bottom:6px}.note{border-left:4px solid var(--teal);padding:14px 18px;background:var(--soft);margin-top:22px}.cta{background:var(--navy);color:white;border-radius:20px;padding:28px}.cta a{display:inline-block;margin-top:14px;background:white;color:var(--navy);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800}footer{padding:30px 0 44px;color:var(--muted);font-size:.9rem}@media(max-width:760px){.grid,.flow{grid-template-columns:1fr}.nav{gap:14px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="index.html">Kristin Bartholomew, EdD, RDN</a><a class="back" href="index.html#portfolio">← Back to portfolio</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Responsible AI Governance · Case Study</div><h1>Aegis Responsible AI Knowledge Assistant</h1><p>A portfolio prototype exploring how retrieval-augmented generation can be designed around grounded evidence, knowledge boundaries, policy hierarchy, human oversight, and explicit risk controls.</p></div></section>
+<section><div class="wrap"><div class="kicker">Why I built it</div><h2>To explore governance as part of the architecture, not an afterthought.</h2><p>Aegis uses a fictional law-firm setting because it creates a useful test case for high-stakes knowledge work. The purpose is not legal automation. The purpose is to demonstrate how an AI assistant can be constrained by a defined knowledge base, required to cite supporting material, refuse questions outside its boundaries, and separate language-model synthesis from deterministic risk and action rules.</p><div class="grid">
+<div class="card"><h3>Grounded responses</h3><p>The assistant is designed around retrieval from an approved knowledge base rather than unconstrained generation.</p></div>
+<div class="card"><h3>Human-in-the-loop design</h3><p>The prototype assumes AI supports professional judgment rather than replacing consequential human decisions.</p></div>
+<div class="card"><h3>Knowledge boundaries</h3><p>Requests outside the defined source set are refused instead of answered from general model knowledge.</p></div>
+<div class="card"><h3>Policy hierarchy</h3><p>Primary and supporting sources are distinguished so the response structure reflects the authority of the underlying material.</p></div>
+<div class="card"><h3>Guardrails outside generation</h3><p>Risk and action logic is deterministic and separate from model-generated prose, reducing dependence on the model for control decisions.</p></div>
+<div class="card"><h3>Deployment-minded controls</h3><p>The portfolio version includes rate limiting, a question-length limit, server-side API key handling, and a health endpoint.</p></div>
+</div></div></section>
+<section style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap"><div class="kicker">Design model</div><h2>A simple governance pathway</h2><div class="flow">
+<div class="step"><strong>1. Retrieve</strong>Use approved source material relevant to the request.</div>
+<div class="step"><strong>2. Ground</strong>Constrain synthesis to the retrieved evidence.</div>
+<div class="step"><strong>3. Cite</strong>Show the policy or source basis supporting the response.</div>
+<div class="step"><strong>4. Guard</strong>Apply deterministic risk and action rules outside model generation.</div>
+<div class="step"><strong>5. Defer</strong>Keep final consequential judgment with a human.</div>
+</div><div class="note"><strong>Institutional relevance:</strong> Aegis demonstrates the questions I believe institutions should ask before scaling AI: What knowledge is the system allowed to use? How is evidence surfaced? What decisions remain human? Where are risk controls enforced? What happens when the system does not know?</div></div></section>
+<section><div class="wrap"><div class="cta"><h2 style="color:white;margin-top:0">What this project demonstrates</h2><p>This prototype is evidence of hands-on AI fluency used to inform broader leadership questions about governance, trustworthy implementation, human oversight, and responsible institutional adoption.</p><a href="index.html#portfolio">Return to selected work</a></div></div></section>
+</main>
+<footer><div class="wrap">Kristin Bartholomew, EdD, RDN · Responsible AI Adoption · Governance · Higher Education Leadership</div></footer>
+</body>
+</html>
